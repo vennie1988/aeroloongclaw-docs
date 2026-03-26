@@ -11,10 +11,10 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /aeroloongclaw-docs/guide/getting-started
+      link: /guide/getting-started
     - theme: alt
       text: 安装部署
-      link: /aeroloongclaw-docs/guide/installation
+      link: /guide/installation
     - theme: alt
       text: GitHub
       link: https://github.com/AeroLoongAI/aeroloongclaw
@@ -73,27 +73,27 @@ AeroLoongClaw 通过消息驱动架构将聊天渠道（企业微信、Web UI）
 ## 从这里开始
 
 <div class="cards">
-  <a href="/aeroloongclaw-docs/guide/what-is" class="card">
+  <a href="/guide/what-is" class="card">
     <h3>什么是 AeroLoongClaw</h3>
     <p>平台概述、核心概念和架构原理</p>
   </a>
-  <a href="/aeroloongclaw-docs/guide/getting-started" class="card">
+  <a href="/guide/getting-started" class="card">
     <h3>快速开始</h3>
     <p>5 分钟内启动你的第一个 AI 员工</p>
   </a>
-  <a href="/aeroloongclaw-docs/guide/installation" class="card">
+  <a href="/guide/installation" class="card">
     <h3>安装部署</h3>
     <p>macOS、Ubuntu 的完整安装流程和服务管理</p>
   </a>
-  <a href="/aeroloongclaw-docs/usage/basic" class="card">
+  <a href="/usage/basic" class="card">
     <h3>基础用法</h3>
     <p>API 调用、CLI 命令和 SDK 集成</p>
   </a>
-  <a href="/aeroloongclaw-docs/channels/" class="card">
+  <a href="/channels/" class="card">
     <h3>消息渠道</h3>
     <p>企业微信、Web UI 等渠道的具体配置</p>
   </a>
-  <a href="/aeroloongclaw-docs/reference/config" class="card">
+  <a href="/reference/config" class="card">
     <h3>配置参考</h3>
     <p>所有环境变量和配置项的完整说明</p>
   </a>
@@ -102,19 +102,19 @@ AeroLoongClaw 通过消息驱动架构将聊天渠道（企业微信、Web UI）
 ## 了解更多
 
 <div class="cards">
-  <a href="/aeroloongclaw-docs/guide/concepts" class="card">
+  <a href="/guide/concepts" class="card">
     <h3>核心概念</h3>
     <p>群组隔离、容器生命周期、IPC 机制</p>
   </a>
-  <a href="/aeroloongclaw-docs/deploy/docker-compose" class="card">
+  <a href="/deploy/docker-compose" class="card">
     <h3>Docker Compose 部署</h3>
     <p>生产环境的容器化部署方案</p>
   </a>
-  <a href="/aeroloongclaw-docs/usage/skills" class="card">
+  <a href="/usage/skills" class="card">
     <h3>技能系统</h3>
     <p>77+ 运行时技能的安装与使用</p>
   </a>
-  <a href="/aeroloongclaw-docs/operations/debugging" class="card">
+  <a href="/operations/debugging" class="card">
     <h3>故障排查</h3>
     <p>常见问题诊断和调试方法</p>
   </a>
