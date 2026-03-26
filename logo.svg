@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AeroLoongClaw Logo">
+  <title>AeroLoongClaw</title>
+  <desc>Multi-model AI employee platform logo</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <!-- Container/sandbox shape -->
+  <rect x="4" y="8" width="56" height="48" rx="10" fill="url(#bg)"/>
+  <!-- Stylized "A" letterform -->
+  <path d="M18 42 L32 18 L46 42" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Crossbar -->
+  <line x1="23" y1="33" x2="41" y2="33" stroke="white" stroke-width="5" stroke-linecap="round"/>
+  <!-- AI node at apex -->
+  <circle cx="32" cy="18" r="4" fill="white"/>
+</svg>
