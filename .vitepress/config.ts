@@ -5,10 +5,10 @@ export default defineConfig({
   title: 'AeroLoongClaw',
   description: '多模型 AI 员工平台 — 在隔离容器中运行智能体',
 
-  base: '/aeroloongclaw/',
+  base: '/aeroloongclaw-docs/',
 
   head: [
-    ['link', { rel: 'icon', href: '/aeroloongclaw/logo.svg' }],
+    ['link', { rel: 'icon', href: '/aeroloongclaw-docs/logo.svg' }],
   ],
 
   themeConfig: {
