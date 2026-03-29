@@ -36,11 +36,14 @@
 /etc/aeroloongclaw/.env
 /etc/aeroloongclaw/mount-allowlist.json
 /etc/aeroloongclaw/sender-allowlist.json
-/var/lib/aeroloongclaw/store
-/var/lib/aeroloongclaw/data
-/var/lib/aeroloongclaw/groups
-/var/lib/aeroloongclaw/custom-skills
-/var/lib/aeroloongclaw/logs
+$XDG_CONFIG_HOME/aeroloongclaw/        (~/.config/aeroloongclaw)
+$XDG_DATA_HOME/aeroloongclaw/store    (~/.local/share/aeroloongclaw/store)
+$XDG_DATA_HOME/aeroloongclaw/groups  (~/.local/share/aeroloongclaw/groups)
+$XDG_DATA_HOME/aeroloongclaw/audit   (~/.local/share/aeroloongclaw/audit)
+$XDG_STATE_HOME/aeroloongclaw/sessions (~/.local/state/aeroloongclaw/sessions)
+$XDG_STATE_HOME/aeroloongclaw/logs    (~/.local/state/aeroloongclaw/logs)
+$XDG_RUNTIME_DIR/aeroloongclaw         (/run/user/$UID/aeroloongclaw)
+$XDG_CACHE_HOME/aeroloongclaw          (~/.cache/aeroloongclaw)
 ```
 
 ### macOS（launchd，当前用户）
@@ -48,12 +51,14 @@
 ```
 ~/Library/Application Support/AeroLoongClaw/releases/<version>
 ~/Library/Application Support/AeroLoongClaw/current
-~/Library/Application Support/AeroLoongClaw/config/.env
-~/Library/Application Support/AeroLoongClaw/store
-~/Library/Application Support/AeroLoongClaw/data
-~/Library/Application Support/AeroLoongClaw/groups
-~/Library/Application Support/AeroLoongClaw/custom-skills
-~/Library/Application Support/AeroLoongClaw/logs
+~/.config/aeroloongclaw/.env
+~/.local/share/aeroloongclaw/store
+~/.local/share/aeroloongclaw/groups
+~/.local/share/aeroloongclaw/audit
+~/.local/state/aeroloongclaw/sessions
+~/.local/state/aeroloongclaw/logs
+~/.cache/aeroloongclaw
+~/Library/Caches/aeroloongclaw
 ~/Library/LaunchAgents/com.aeroloongclaw.plist
 ```
 
@@ -125,10 +130,10 @@ AeroLoongClaw 在 Linux 上涉及三个用户身份：
 
 ```bash
 # 修复目录权限（一次性）
-sudo chmod -R 755 /var/lib/aeroloongclaw/data/sessions/
+sudo chmod -R 755 /var/lib/aeroloongclaw/sessions/
 sudo chown -R 1000:1000 /var/lib/aeroloongclaw/groups/
-sudo chown -R 1000:1000 /var/lib/aeroloongclaw/data/sessions/
-sudo chown -R 1000:1000 /var/lib/aeroloongclaw/data/ipc/
+sudo chown -R 1000:1000 /var/lib/aeroloongclaw/sessions/
+sudo chown -R 1000:1000 /var/lib/aeroloongclaw/ipc/
 ```
 
 ## 升级
@@ -176,7 +181,10 @@ chmod +x upgrade.sh
 # Linux
 sudo AEROLOONGCLAW_ENV_FILE=/etc/aeroloongclaw/.env \
   AEROLOONGCLAW_STORE_DIR=/var/lib/aeroloongclaw/store \
-  AEROLOONGCLAW_DATA_DIR=/var/lib/aeroloongclaw/data \
+  AEROLOONGCLAW_AUDIT_DIR=/var/lib/aeroloongclaw/audit \
+  AEROLOONGCLAW_SESSIONS_DIR=/var/lib/aeroloongclaw/sessions \
+  AEROLOONGCLAW_IPC_DIR=/run/user/$(id -u)/aeroloongclaw \
+  AEROLOONGCLAW_CACHE_DIR=/var/cache/aeroloongclaw \
   AEROLOONGCLAW_GROUPS_DIR=/var/lib/aeroloongclaw/groups \
   AEROLOONGCLAW_CUSTOM_SKILLS_DIR=/var/lib/aeroloongclaw/custom-skills \
   AEROLOONGCLAW_LOGS_DIR=/var/lib/aeroloongclaw/logs \
@@ -185,7 +193,7 @@ sudo AEROLOONGCLAW_ENV_FILE=/etc/aeroloongclaw/.env \
   npm --prefix /opt/aeroloongclaw/current run backup:state
 ```
 
-备份默认写入 `${AEROLOONGCLAW_DATA_DIR}/backups/<timestamp>/`，包含 `manifest.json` 和一致性 SQLite 备份。
+备份默认写入 `${AEROLOONGCLAW_STORE_DIR}/backups/<timestamp>/`，包含 `manifest.json` 和一致性 SQLite 备份。
 
 ### 恢复
 
@@ -198,13 +206,16 @@ sudo AEROLOONGCLAW_ENV_FILE=/etc/aeroloongclaw/.env \
 sudo systemctl stop aeroloongclaw
 sudo AEROLOONGCLAW_ENV_FILE=/etc/aeroloongclaw/.env \
   AEROLOONGCLAW_STORE_DIR=/var/lib/aeroloongclaw/store \
-  AEROLOONGCLAW_DATA_DIR=/var/lib/aeroloongclaw/data \
+  AEROLOONGCLAW_AUDIT_DIR=/var/lib/aeroloongclaw/audit \
+  AEROLOONGCLAW_SESSIONS_DIR=/var/lib/aeroloongclaw/sessions \
+  AEROLOONGCLAW_IPC_DIR=/run/user/$(id -u)/aeroloongclaw \
+  AEROLOONGCLAW_CACHE_DIR=/var/cache/aeroloongclaw \
   AEROLOONGCLAW_GROUPS_DIR=/var/lib/aeroloongclaw/groups \
   AEROLOONGCLAW_CUSTOM_SKILLS_DIR=/var/lib/aeroloongclaw/custom-skills \
   AEROLOONGCLAW_LOGS_DIR=/var/lib/aeroloongclaw/logs \
   AEROLOONGCLAW_MOUNT_ALLOWLIST_PATH=/etc/aeroloongclaw/mount-allowlist.json \
   AEROLOONGCLAW_SENDER_ALLOWLIST_PATH=/etc/aeroloongclaw/sender-allowlist.json \
-  npm --prefix /opt/aeroloongclaw/current run restore:state -- --from /var/lib/aeroloongclaw/data/backups/<timestamp> --dry-run
+  npm --prefix /opt/aeroloongclaw/current run restore:state -- --from /var/lib/aeroloongclaw/store/backups/<timestamp> --dry-run
 ```
 
 ## 卸载

@@ -99,14 +99,14 @@ sudo sed -i 's/ASSISTANT_HAS_OWN_NUMBER=false/ASSISTANT_HAS_OWN_NUMBER=true/' /e
 **临时修复**（对已有部署）：
 ```bash
 sudo chown -R 1000:1000 /var/lib/aeroloongclaw/groups/
-sudo chown -R 1000:1000 /var/lib/aeroloongclaw/data/sessions/
-sudo chown -R 1000:1000 /var/lib/aeroloongclaw/data/ipc/
+sudo chown -R 1000:1000 /var/lib/aeroloongclaw/sessions/
+sudo chown -R 1000:1000 /var/lib/aeroloongclaw/ipc/
 ```
 
 **补充**：即使 host 上 `ubuntu` 用户的 uid 恰好是 1000（与容器内 `node` 一致），如果目录 mode 是 `0700`，Docker 可能因 user namespace remapping 或 SELinux/AppArmor 策略仍然拒绝访问。解决方法是 `chmod -R 755` 再 `chown -R 1000:1000`：
 ```bash
-sudo chmod -R 755 /var/lib/aeroloongclaw/data/sessions/
-sudo chown -R 1000:1000 /var/lib/aeroloongclaw/data/sessions/
+sudo chmod -R 755 /var/lib/aeroloongclaw/sessions/
+sudo chown -R 1000:1000 /var/lib/aeroloongclaw/sessions/
 ```
 
 ## 8. `WECOM_CALLBACK_PORT` 旧版配置阻止启动
@@ -174,7 +174,10 @@ EOF
 sudo -u aeroloongclaw \
   AEROLOONGCLAW_ENV_FILE=/etc/aeroloongclaw/.env \
   AEROLOONGCLAW_STORE_DIR=/var/lib/aeroloongclaw/store \
-  AEROLOONGCLAW_DATA_DIR=/var/lib/aeroloongclaw/data \
+  AEROLOONGCLAW_AUDIT_DIR=/var/lib/aeroloongclaw/audit \
+  AEROLOONGCLAW_SESSIONS_DIR=/var/lib/aeroloongclaw/sessions \
+  AEROLOONGCLAW_IPC_DIR=/run/user/$(id -u)/aeroloongclaw \
+  AEROLOONGCLAW_CACHE_DIR=/var/cache/aeroloongclaw \
   AEROLOONGCLAW_GROUPS_DIR=/var/lib/aeroloongclaw/groups \
   AEROLOONGCLAW_CUSTOM_SKILLS_DIR=/var/lib/aeroloongclaw/custom-skills \
   AEROLOONGCLAW_LOGS_DIR=/var/lib/aeroloongclaw/logs \
@@ -199,10 +202,10 @@ sudo tail -f /var/lib/aeroloongclaw/logs/aeroloongclaw.error.log
 
 **权限修复**（一次性，修复已有的 root-owned 目录）：
 ```bash
-sudo chmod -R 755 /var/lib/aeroloongclaw/data/sessions/
+sudo chmod -R 755 /var/lib/aeroloongclaw/sessions/
 sudo chown -R 1000:1000 /var/lib/aeroloongclaw/groups/
-sudo chown -R 1000:1000 /var/lib/aeroloongclaw/data/sessions/
-sudo chown -R 1000:1000 /var/lib/aeroloongclaw/data/ipc/
+sudo chown -R 1000:1000 /var/lib/aeroloongclaw/sessions/
+sudo chown -R 1000:1000 /var/lib/aeroloongclaw/ipc/
 ```
 
 **调试容器问题**：

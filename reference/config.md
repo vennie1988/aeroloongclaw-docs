@@ -102,7 +102,10 @@
 |------|------|
 | `AEROLOONGCLAW_ENV_FILE` | `.env` 文件路径 |
 | `AEROLOONGCLAW_STORE_DIR` | 持久化数据存储目录 |
-| `AEROLOONGCLAW_DATA_DIR` | 通用数据目录 |
+| `AEROLOONGCLAW_AUDIT_DIR` | 审计日志目录 |
+| `AEROLOONGCLAW_SESSIONS_DIR` | 会话状态目录 |
+| `AEROLOONGCLAW_IPC_DIR` | IPC 文件目录 |
+| `AEROLOONGCLAW_CACHE_DIR` | 缓存目录 |
 | `AEROLOONGCLAW_GROUPS_DIR` | 群组工作区目录 |
 | `AEROLOONGCLAW_CUSTOM_SKILLS_DIR` | 自定义 skills 目录 |
 | `AEROLOONGCLAW_LOGS_DIR` | 日志目录 |

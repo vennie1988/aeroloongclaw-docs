@@ -98,7 +98,10 @@ npm run wizard
 sudo -u aeroloongclaw \
   AEROLOONGCLAW_ENV_FILE=/etc/aeroloongclaw/.env \
   AEROLOONGCLAW_STORE_DIR=/var/lib/aeroloongclaw/store \
-  AEROLOONGCLAW_DATA_DIR=/var/lib/aeroloongclaw/data \
+  AEROLOONGCLAW_AUDIT_DIR=/var/lib/aeroloongclaw/audit \
+  AEROLOONGCLAW_SESSIONS_DIR=/var/lib/aeroloongclaw/sessions \
+  AEROLOONGCLAW_IPC_DIR=/run/user/$(id -u)/aeroloongclaw \
+  AEROLOONGCLAW_CACHE_DIR=/var/cache/aeroloongclaw \
   AEROLOONGCLAW_GROUPS_DIR=/var/lib/aeroloongclaw/groups \
   AEROLOONGCLAW_CUSTOM_SKILLS_DIR=/var/lib/aeroloongclaw/custom-skills \
   AEROLOONGCLAW_LOGS_DIR=/var/lib/aeroloongclaw/logs \
@@ -140,7 +143,10 @@ sudo journalctl -u aeroloongclaw -f
 ```bash
 sudo AEROLOONGCLAW_ENV_FILE=/etc/aeroloongclaw/.env \
   AEROLOONGCLAW_STORE_DIR=/var/lib/aeroloongclaw/store \
-  AEROLOONGCLAW_DATA_DIR=/var/lib/aeroloongclaw/data \
+  AEROLOONGCLAW_AUDIT_DIR=/var/lib/aeroloongclaw/audit \
+  AEROLOONGCLAW_SESSIONS_DIR=/var/lib/aeroloongclaw/sessions \
+  AEROLOONGCLAW_IPC_DIR=/run/user/$(id -u)/aeroloongclaw \
+  AEROLOONGCLAW_CACHE_DIR=/var/cache/aeroloongclaw \
   AEROLOONGCLAW_GROUPS_DIR=/var/lib/aeroloongclaw/groups \
   AEROLOONGCLAW_CUSTOM_SKILLS_DIR=/var/lib/aeroloongclaw/custom-skills \
   AEROLOONGCLAW_LOGS_DIR=/var/lib/aeroloongclaw/logs \
@@ -154,7 +160,10 @@ sudo AEROLOONGCLAW_ENV_FILE=/etc/aeroloongclaw/.env \
 ```bash
 sudo AEROLOONGCLAW_ENV_FILE=/etc/aeroloongclaw/.env \
   AEROLOONGCLAW_STORE_DIR=/var/lib/aeroloongclaw/store \
-  AEROLOONGCLAW_DATA_DIR=/var/lib/aeroloongclaw/data \
+  AEROLOONGCLAW_AUDIT_DIR=/var/lib/aeroloongclaw/audit \
+  AEROLOONGCLAW_SESSIONS_DIR=/var/lib/aeroloongclaw/sessions \
+  AEROLOONGCLAW_IPC_DIR=/run/user/$(id -u)/aeroloongclaw \
+  AEROLOONGCLAW_CACHE_DIR=/var/cache/aeroloongclaw \
   AEROLOONGCLAW_GROUPS_DIR=/var/lib/aeroloongclaw/groups \
   AEROLOONGCLAW_CUSTOM_SKILLS_DIR=/var/lib/aeroloongclaw/custom-skills \
   AEROLOONGCLAW_LOGS_DIR=/var/lib/aeroloongclaw/logs \
@@ -205,7 +214,10 @@ sudo tail -n 200 /var/lib/aeroloongclaw/logs/aeroloongclaw.error.log
 ```bash
 sudo AEROLOONGCLAW_ENV_FILE=/etc/aeroloongclaw/.env \
   AEROLOONGCLAW_STORE_DIR=/var/lib/aeroloongclaw/store \
-  AEROLOONGCLAW_DATA_DIR=/var/lib/aeroloongclaw/data \
+  AEROLOONGCLAW_AUDIT_DIR=/var/lib/aeroloongclaw/audit \
+  AEROLOONGCLAW_SESSIONS_DIR=/var/lib/aeroloongclaw/sessions \
+  AEROLOONGCLAW_IPC_DIR=/run/user/$(id -u)/aeroloongclaw \
+  AEROLOONGCLAW_CACHE_DIR=/var/cache/aeroloongclaw \
   AEROLOONGCLAW_GROUPS_DIR=/var/lib/aeroloongclaw/groups \
   AEROLOONGCLAW_CUSTOM_SKILLS_DIR=/var/lib/aeroloongclaw/custom-skills \
   AEROLOONGCLAW_LOGS_DIR=/var/lib/aeroloongclaw/logs \
@@ -219,7 +231,10 @@ sudo AEROLOONGCLAW_ENV_FILE=/etc/aeroloongclaw/.env \
 ```bash
 sudo AEROLOONGCLAW_ENV_FILE=/etc/aeroloongclaw/.env \
   AEROLOONGCLAW_STORE_DIR=/var/lib/aeroloongclaw/store \
-  AEROLOONGCLAW_DATA_DIR=/var/lib/aeroloongclaw/data \
+  AEROLOONGCLAW_AUDIT_DIR=/var/lib/aeroloongclaw/audit \
+  AEROLOONGCLAW_SESSIONS_DIR=/var/lib/aeroloongclaw/sessions \
+  AEROLOONGCLAW_IPC_DIR=/run/user/$(id -u)/aeroloongclaw \
+  AEROLOONGCLAW_CACHE_DIR=/var/cache/aeroloongclaw \
   AEROLOONGCLAW_GROUPS_DIR=/var/lib/aeroloongclaw/groups \
   AEROLOONGCLAW_CUSTOM_SKILLS_DIR=/var/lib/aeroloongclaw/custom-skills \
   AEROLOONGCLAW_LOGS_DIR=/var/lib/aeroloongclaw/logs \
