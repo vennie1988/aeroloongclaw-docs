@@ -176,7 +176,7 @@ sudo -u aeroloongclaw \
   AEROLOONGCLAW_STORE_DIR=/var/lib/aeroloongclaw/store \
   AEROLOONGCLAW_AUDIT_DIR=/var/lib/aeroloongclaw/audit \
   AEROLOONGCLAW_SESSIONS_DIR=/var/lib/aeroloongclaw/sessions \
-  AEROLOONGCLAW_IPC_DIR=/run/user/$(id -u)/aeroloongclaw \
+  AEROLOONGCLAW_IPC_DIR=/var/lib/aeroloongclaw/ipc/aeroloongclaw \
   AEROLOONGCLAW_CACHE_DIR=/var/cache/aeroloongclaw \
   AEROLOONGCLAW_GROUPS_DIR=/var/lib/aeroloongclaw/groups \
   AEROLOONGCLAW_CUSTOM_SKILLS_DIR=/var/lib/aeroloongclaw/custom-skills \
